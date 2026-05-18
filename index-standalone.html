@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关东稻香皂 | 承关东农耕韵，凝稻香润日常</title>
+  <meta name="description" content="复刻稻田原生风貌，匠心打造农耕地标文创皂。关东稻香皂，传承关东农耕文化，以稻田为灵感，打造立体稻穗造型的文创手工皂。">
+  <meta name="keywords" content="关东稻香皂,文创皂,农耕文化,稻米精华,手工皂,关东特产,文旅文创">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'serif': ['Noto Serif SC', 'Songti SC', 'SimSun', 'serif'],
+            'sans': ['PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'sans-serif'],
+          },
+          colors: {
+            amber: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              200: '#fde68a',
+              300: '#fcd34d',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              700: '#b45309',
+              800: '#92400e',
+              900: '#78350f',
+              950: '#451a03',
+            },
+          }
+        }
+      }
+    }
+  </script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.cn">
+  <link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin>
+  <link href="https://fonts.googleapis.cn/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* 自定义动画 */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+      }
+      50% {
+        transform: translateY(-25%);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+      }
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.5;
+      }
+    }
+    
+    .animate-fade-in-up {
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-bounce {
+      animation: bounce 1s infinite;
+    }
+    
+    .animate-pulse {
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* 平滑滚动 */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* 稻穗装饰纹理 */
+    .rice-pattern {
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a853' fill-opacity='0.05'%3E%3Cpath d='M30 10c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2zm0 10c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2zm0 10c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2zm0 10c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2zm0 10c-1 0-2 1-2 2s1 2 2 2 2-1 2-2-1-2-2-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    /* 隐藏移动端菜单 */
+    .mobile-menu {
+      display: none;
+    }
+    
+    .mobile-menu.active {
+      display: block;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-amber-50 text-gray-800 font-sans overflow-x-hidden">
+  
+  <!-- 导航栏 -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent py-5">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 text-white transition-colors duration-300">
+          <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" fill="currentColor" opacity="0.8"/>
+            <path d="M12 6C11.5 6 11 6.5 11 7C11 7.5 11.5 8 12 8C12.5 8 13 7.5 13 7C13 6.5 12.5 6 12 6Z" fill="currentColor"/>
+            <path d="M12 10C11.5 10 11 10.5 11 11C11 11.5 11.5 12 12 12C12.5 12 13 11.5 13 11C13 10.5 12.5 10 12 10Z" fill="currentColor"/>
+          </svg>
+          <span class="font-bold text-lg font-serif">关东稻香皂</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center gap-1">
+          <a href="#origin" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">地标溯源</a>
+          <a href="#design" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">设计理念</a>
+          <a href="#product" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">产品展示</a>
+          <a href="#ingredients" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">核心成分</a>
+          <a href="#experience" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">使用体验</a>
+          <a href="#culture" class="nav-link px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 text-white/90 hover:bg-white/10">文化寓意</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="menuIcon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu md:hidden mt-4 py-4 bg-white rounded-2xl shadow-xl border border-amber-100">
+        <a href="#origin" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">地标溯源</a>
+        <a href="#design" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">设计理念</a>
+        <a href="#product" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">产品展示</a>
+        <a href="#ingredients" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">核心成分</a>
+        <a href="#experience" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">使用体验</a>
+        <a href="#culture" class="block px-6 py-3 text-amber-700 hover:bg-amber-50 transition-colors">文化寓意</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Banner区域 -->
+  <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <!-- 背景图 -->
+    <div class="absolute inset-0 z-0">
+      <img src="https://coze-coding-project.tos.coze.site/coze_storage_7640796982122217510/image/generate_image_a4f9445e-b258-4012-8ad8-92cb134a6188.jpeg?sign=1810548592-ee0c66d638-0-103891692851f8647c95b3cdee731339f34dd160380d0d8a2ccf44453c9e8a88" 
+           alt="关东稻田风光" 
+           class="w-full h-full object-cover">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+    </div>
+    
+    <!-- 稻穗装饰动画 -->
+    <div class="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-10 animate-float opacity-30">
+        <svg class="w-16 h-16 text-amber-200" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" fill="currentColor" opacity="0.8"/>
+          <path d="M12 6C11.5 6 11 6.5 11 7C11 7.5 11.5 8 12 8C12.5 8 13 7.5 13 7C13 6.5 12.5 6 12 6Z" fill="currentColor"/>
+          <path d="M12 10C11.5 10 11 10.5 11 11C11 11.5 11.5 12 12 12C12.5 12 13 11.5 13 11C13 10.5 12.5 10 12 10Z" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="absolute top-40 right-20 animate-float opacity-20" style="animation-delay: 1s;">
+        <svg class="w-12 h-12 text-amber-200" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+        </svg>
+      </div>
+      <div class="absolute bottom-40 left-20 animate-float opacity-25" style="animation-delay: 2s;">
+        <svg class="w-20 h-20 text-amber-200" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+        </svg>
+      </div>
+    </div>
+    
+    <!-- 主标题内容 -->
+    <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+      <div class="mb-6 animate-fade-in-up">
+        <span class="inline-block px-4 py-1.5 bg-amber-500/20 backdrop-blur-sm text-amber-100 rounded-full text-sm tracking-widest border border-amber-300/30">
+          关东农耕 · 匠心文创
+        </span>
+      </div>
+      
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-wide animate-fade-in-up font-serif" style="animation-delay: 0.2s;">
+        承关东农耕韵
+        <br>
+        <span class="text-amber-300">凝稻香润日常</span>
+      </h1>
+      
+      <p class="text-lg md:text-xl text-amber-100/90 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up" style="animation-delay: 0.4s;">
+        复刻稻田原生风貌，匠心打造农耕地标文创皂
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style="animation-delay: 0.6s;">
+        <a href="#origin" class="px-8 py-3.5 bg-amber-500 hover:bg-amber-400 text-amber-950 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg shadow-amber-500/30">
+          探索溯源
+        </a>
+        <a href="#product" class="px-8 py-3.5 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white rounded-full font-medium transition-all duration-300 border border-white/30">
+          了解产品
+        </a>
+      </div>
+    </div>
+    
+    <!-- 向下滚动提示 -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center pt-2">
+        <div class="w-1.5 h-3 bg-white/70 rounded-full animate-pulse"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 快捷卖点列表 -->
+  <section class="py-12 bg-gradient-to-r from-amber-50 via-orange-50 to-yellow-50 border-y border-amber-200/50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6">
+        <div class="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-3xl mb-2">🌾</div>
+          <h3 class="font-semibold text-amber-900 mb-1">立体稻穗造型</h3>
+          <p class="text-sm text-amber-700/70">原生稻田美学</p>
+        </div>
+        <div class="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-3xl mb-2">🎨</div>
+          <h3 class="font-semibold text-amber-900 mb-1">原生谷物配色</h3>
+          <p class="text-sm text-amber-700/70">自然质朴色调</p>
+        </div>
+        <div class="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-3xl mb-2">🌸</div>
+          <h3 class="font-semibold text-amber-900 mb-1">双香精准调配</h3>
+          <p class="text-sm text-amber-700/70">稻香与麦香融合</p>
+        </div>
+        <div class="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+          <div class="text-3xl mb-2">✨</div>
+          <h3 class="font-semibold text-amber-900 mb-1">谷物调色工艺</h3>
+          <p class="text-sm text-amber-700/70">传统手工匠心</p>
+        </div>
+        <div class="text-center p-4 bg-white/60 backdrop-blur-sm rounded-2xl border border-amber-100 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 col-span-2 md:col-span-1">
+          <div class="text-3xl mb-2">🎁</div>
+          <h3 class="font-semibold text-amber-900 mb-1">文旅文创好物</h3>
+          <p class="text-sm text-amber-700/70">自用馈赠皆宜</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 地标溯源板块 -->
+  <section id="origin" class="py-24 bg-amber-50 relative overflow-hidden">
+    <div class="absolute inset-0 rice-pattern opacity-50"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-sm mb-4">地标溯源</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">关东大地 · 稻米之乡</h2>
+        <svg class="w-32 h-8 mx-auto text-amber-400" viewBox="0 0 100 30" fill="none">
+          <path d="M0 15Q25 5 50 15Q75 25 100 15" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+          <path d="M20 10L25 15L20 20" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M80 10L75 15L80 20" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+        </svg>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+          <img src="https://coze-coding-project.tos.coze.site/coze_storage_7640796982122217510/image/generate_image_d6043a53-b4a5-46be-9cea-6f300add9f01.jpeg?sign=1810548590-a2abb9386e-0-c258df684c7ef323fed5aadc6a01fa25afeccf15e087fcf4368d7a605b7db651" 
+               alt="关东田野风光" 
+               class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        </div>
+        
+        <div class="space-y-8">
+          <div class="flex gap-4 p-6 bg-amber-50/50 rounded-2xl hover:bg-amber-100/50 transition-colors duration-300">
+            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M8 21l4-10 4 10M2 21h20M12 3v5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-amber-900 mb-2">沃野千里的黑土地</h3>
+              <p class="text-amber-800/70 leading-relaxed">关东大地，黑土层深厚肥沃，有机质含量丰富，被誉为"耕地中的大熊猫"。这片神奇的土地，孕育出品质卓越的稻米，承载着世代农耕的智慧与传承。</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4 p-6 bg-amber-50/50 rounded-2xl hover:bg-amber-100/50 transition-colors duration-300">
+            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <circle cx="12" cy="12" r="4"/>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-amber-900 mb-2">黄金稻作带的光照恩赐</h3>
+              <p class="text-amber-800/70 leading-relaxed">位于北纬40-50度黄金稻作带，夏季日照充足，昼夜温差大，利于稻米营养积累。得天独厚的自然条件，造就了关东稻米晶莹饱满、软糯香甜的卓越品质。</p>
+            </div>
+          </div>
+          
+          <div class="flex gap-4 p-6 bg-amber-50/50 rounded-2xl hover:bg-amber-100/50 transition-colors duration-300">
+            <div class="flex-shrink-0 w-14 h-14 bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl flex items-center justify-center text-white shadow-lg">
+              <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-amber-900 mb-2">清澈水源的灌溉滋养</h3>
+              <p class="text-amber-800/70 leading-relaxed">源自长白山天池的清澈水源，流经广袤的黑土地，为稻田注入纯净的生命力。好水养好稻，每一粒米都承载着山川灵气与自然的馈赠。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 设计理念展示区 -->
+  <section id="design" class="py-24 bg-gradient-to-b from-amber-50 to-orange-50 relative">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-orange-100 text-orange-700 rounded-full text-sm mb-4">设计理念</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">匠心独运 · 稻韵天成</h2>
+        <p class="text-amber-700 max-w-2xl mx-auto">每一处细节，都是对稻田原生风貌的深情致敬</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- 设计理念卡片 -->
+        <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100">
+          <div class="w-16 h-16 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">立体稻穗造型</h3>
+          <p class="text-amber-800/70 leading-relaxed mb-6">以关东稻田成熟的稻穗为原型，采用立体浮雕工艺，将饱满的稻粒形态完美复刻于皂体之上。每一粒稻谷都栩栩如生，触摸间仿佛能感受到秋收时节的丰盈喜悦。</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">立体浮雕工艺</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">稻粒栩栩如生</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">触感温润细腻</span>
+          </div>
+        </div>
+        
+        <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100">
+          <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-emerald-500 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">原生谷物配色</h3>
+          <p class="text-amber-800/70 leading-relaxed mb-6">汲取成熟稻穗的金黄、稻米的米白、稻田的墨绿，以天然谷物为灵感调配色彩。摒弃人工色素，还原大自然最本真的色调，让每一块皂都散发着田野的质朴气息。</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">天然谷物色调</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">米白金黄渐变</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">无人工色素</span>
+          </div>
+        </div>
+        
+        <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100">
+          <div class="w-16 h-16 bg-gradient-to-br from-orange-400 to-amber-500 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">双香精准调配</h3>
+          <p class="text-amber-800/70 leading-relaxed mb-6">融合稻米的清香与麦穗的麦香，经过上百次调试，找到最佳的香气比例。前调清冽如晨露，中调温润如稻浪，尾调悠长如秋阳，带来层次丰富的嗅觉体验。</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">稻香麦香融合</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">层次丰富</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">自然持久</span>
+          </div>
+        </div>
+        
+        <div class="group bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-amber-100">
+          <div class="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl mb-6 flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">谷物调色工艺</h3>
+          <p class="text-amber-800/70 leading-relaxed mb-6">传承古法手工调色技艺，采用天然谷物粉末进行色彩调配。每一块皂都经过匠人手工塑形、晾晒、打磨，确保每一件作品都独一无二，承载着手工的温度与匠心。</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">古法手工技艺</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">天然谷物调色</span>
+            <span class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">件件独一无二</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 产品展示 -->
+  <section id="product" class="py-24 bg-amber-50 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="order-2 md:order-1 space-y-6">
+          <span class="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-sm">产品展示</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-amber-900 font-serif">关东稻香皂</h2>
+          <p class="text-amber-700 leading-relaxed">
+            一方皂体，凝聚关东大地的农耕智慧与自然馈赠。从黑土地的孕育，到稻田的守望，再到匠心的打磨，每一块关东稻香皂都是农耕文化的缩影，是对自然与传统最深情的致敬。
+          </p>
+          <div class="grid grid-cols-2 gap-4 pt-4">
+            <div class="p-4 bg-amber-50 rounded-xl">
+              <div class="text-2xl font-bold text-amber-600 mb-1">100%</div>
+              <div class="text-sm text-amber-700/70">天然成分</div>
+            </div>
+            <div class="p-4 bg-amber-50 rounded-xl">
+              <div class="text-2xl font-bold text-amber-600 mb-1">0添加</div>
+              <div class="text-sm text-amber-700/70">防腐色素</div>
+            </div>
+            <div class="p-4 bg-amber-50 rounded-xl">
+              <div class="text-2xl font-bold text-amber-600 mb-1">手工</div>
+              <div class="text-sm text-amber-700/70">匠人打造</div>
+            </div>
+            <div class="p-4 bg-amber-50 rounded-xl">
+              <div class="text-2xl font-bold text-amber-600 mb-1">文化</div>
+              <div class="text-sm text-amber-700/70">传承礼赠</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="order-1 md:order-2 relative">
+          <div class="absolute -inset-4 bg-gradient-to-r from-amber-200 via-yellow-200 to-orange-200 rounded-3xl blur-2xl opacity-40"></div>
+          <div class="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+            <img src="https://coze-coding-project.tos.coze.site/coze_storage_7640796982122217510/image/generate_image_771d4a7d-ee1f-4ea3-9603-8ecc8eb163e0.jpeg?sign=1810548589-23fb7d3ef9-0-9e326b5abf531a052b53245503cf7ba0cbfe41179f3201261281234d9461ed4d" 
+                 alt="关东稻香皂产品" 
+                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 核心成分模块 -->
+  <section id="ingredients" class="py-24 bg-gradient-to-b from-green-50 to-emerald-50 relative">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-green-100 text-green-700 rounded-full text-sm mb-4">核心成分</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">自然馈赠 · 成就非凡</h2>
+        <p class="text-amber-700 max-w-2xl mx-auto">甄选关东大地珍贵谷物精华，以自然之力滋养肌肤</p>
+      </div>
+      
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-green-100 group">
+          <div class="text-4xl mb-4">🌾</div>
+          <h3 class="text-lg font-bold text-amber-900 mb-2">关东稻米精华</h3>
+          <p class="text-amber-800/70 text-sm leading-relaxed mb-4">源自北纬黄金稻作带的优质稻米，富含维生素E与多种氨基酸，深层滋养肌肤，提亮肤色，让肌肤重现健康光泽。</p>
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium group-hover:bg-green-200 transition-colors">深层滋养</span>
+        </div>
+        
+        <div class="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-green-100 group">
+          <div class="text-4xl mb-4">🍚</div>
+          <h3 class="text-lg font-bold text-amber-900 mb-2">原生糯米提取物</h3>
+          <p class="text-amber-800/70 text-sm leading-relaxed mb-4">精选关东原生糯米，含有丰富的蛋白质与矿物质，具有卓越的保湿功效，能够锁住肌肤水分，保持水润柔滑。</p>
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium group-hover:bg-green-200 transition-colors">持久保湿</span>
+        </div>
+        
+        <div class="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-green-100 group">
+          <div class="text-4xl mb-4">🌿</div>
+          <h3 class="text-lg font-bold text-amber-900 mb-2">大麦植萃精华</h3>
+          <p class="text-amber-800/70 text-sm leading-relaxed mb-4">提取自关东黑土地生长的大麦，含有天然的抗氧化成分，温和清洁的同时舒缓肌肤，提升肌肤自我修复能力。</p>
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium group-hover:bg-green-200 transition-colors">舒缓修护</span>
+        </div>
+        
+        <div class="bg-white rounded-3xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-green-100 group">
+          <div class="text-4xl mb-4">✨</div>
+          <h3 class="text-lg font-bold text-amber-900 mb-2">天然谷物皂基</h3>
+          <p class="text-amber-800/70 text-sm leading-relaxed mb-4">以天然谷物为原料，经过传统工艺精制而成的皂基，温和无刺激，泡沫绵密细腻，适合各种肤质日常使用。</p>
+          <span class="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium group-hover:bg-green-200 transition-colors">温和洁净</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 使用体验区域 -->
+  <section id="experience" class="py-24 bg-amber-50 relative overflow-hidden">
+    <div class="absolute inset-0 rice-pattern opacity-30"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-amber-100 text-amber-700 rounded-full text-sm mb-4">使用体验</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">温润如玉 · 稻香萦绕</h2>
+        <p class="text-amber-700 max-w-2xl mx-auto">每一次使用，都是一场与自然的亲密对话</p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 group">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-amber-400 to-yellow-400 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 3v18M3 12h18M5.64 5.64l12.72 12.72M18.36 5.64L5.64 18.36" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">绵柔细泡</h3>
+          <p class="text-amber-800/70 leading-relaxed">轻轻揉搓，即可产生绵密如云朵般的细腻泡沫，包裹每一寸肌肤，带来愉悦的洗护体验。</p>
+        </div>
+        
+        <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 group">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-400 to-cyan-400 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">温润净肤</h3>
+          <p class="text-amber-800/70 leading-relaxed">温和的清洁力，不会过度清洁带走肌肤天然油脂，洗后肌肤清爽不紧绷，水润舒适。</p>
+        </div>
+        
+        <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 group">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-green-400 to-emerald-400 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M11 20A7 7 0 0 1 4 13c0-4 4-8 8-9 4 1 8 5 8 9a7 7 0 0 1-7 7zM12 4v16" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">软糯留香</h3>
+          <p class="text-amber-800/70 leading-relaxed">稻香与麦香的自然融合，留下淡淡的清香，如同置身金黄稻田，清新不腻人。</p>
+        </div>
+        
+        <div class="text-center p-8 bg-white rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 border border-amber-100 group">
+          <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-rose-400 to-pink-400 rounded-2xl flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-10 h-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-amber-900 mb-3">多场景适用</h3>
+          <p class="text-amber-800/70 leading-relaxed">洗脸、沐浴、洗手皆宜，男女老少皆可使用，全家人共享的自然洗护好物。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 文化寓意板块 -->
+  <section id="culture" class="py-24 bg-gradient-to-b from-amber-100 via-orange-100 to-yellow-100 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-0 left-0 w-64 h-64 bg-amber-300/20 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-orange-300/20 rounded-full blur-3xl"></div>
+    </div>
+    
+    <div class="max-w-5xl mx-auto px-4 relative z-10">
+      <div class="text-center mb-16">
+        <span class="inline-block px-4 py-1 bg-amber-200 text-amber-800 rounded-full text-sm mb-4">文化寓意</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-amber-900 mb-4 font-serif">文化传承 · 礼赠佳选</h2>
+        <svg class="w-32 h-8 mx-auto text-amber-500" viewBox="0 0 100 30" fill="none">
+          <path d="M0 15Q25 5 50 15Q75 25 100 15" stroke="currentColor" stroke-width="1" fill="none" opacity="0.3"/>
+          <path d="M20 10L25 15L20 20" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+          <path d="M80 10L75 15L80 20" stroke="currentColor" stroke-width="1" fill="none" opacity="0.5"/>
+        </svg>
+      </div>
+      
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-amber-200/50">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-amber-400 to-orange-400 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg">
+              🏠
+            </div>
+            <h3 class="text-xl font-bold text-amber-900">自用 · 日常的仪式感</h3>
+          </div>
+          <p class="text-amber-800/80 leading-relaxed">
+            每一次使用，都是对关东农耕文化的感受与传承。让稻田的清香成为日常的一部分，在忙碌的生活中，找回那份与自然相连的宁静与温情。一方皂体，承载着对土地的敬意，对传统的守护。
+          </p>
+        </div>
+        
+        <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-lg border border-amber-200/50">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 bg-gradient-to-br from-rose-400 to-pink-400 rounded-xl flex items-center justify-center text-white text-2xl shadow-lg">
+              🎁
+            </div>
+            <h3 class="text-xl font-bold text-amber-900">馈赠 · 文化的温度</h3>
+          </div>
+          <p class="text-amber-800/80 leading-relaxed">
+            作为关东地域的文旅文创好物，关东稻香皂是一份承载文化温度的礼物。无论是赠予远方友人，还是作为旅行的纪念，它都传递着关东大地的农耕智慧与人文情怀，是一份有故事、有温度的馈赠。
+          </p>
+        </div>
+      </div>
+      
+      <div class="text-center bg-white/60 backdrop-blur-sm rounded-3xl p-8 border border-amber-200/30">
+        <div class="flex items-center justify-center gap-4 mb-4">
+          <svg class="w-8 h-8 text-amber-600" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+          </svg>
+          <h3 class="text-2xl font-bold text-amber-900 font-serif">农耕系文旅文创好物</h3>
+          <svg class="w-8 h-8 text-amber-600" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+          </svg>
+        </div>
+        <p class="text-amber-700 max-w-2xl mx-auto leading-relaxed">
+          关东稻香皂，不仅仅是一块手工皂，更是关东农耕文化的载体。它让农耕精神走进现代生活，让传统文化在日用中传承。自用，是对生活品质的追求；馈赠，是对文化价值的传递。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 底部金句 -->
+  <section class="py-20 bg-gradient-to-r from-amber-600 via-orange-500 to-yellow-500 relative overflow-hidden">
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full"></div>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+      <div class="mb-8 flex justify-center">
+        <svg class="w-16 h-16 text-amber-200 animate-float" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+        </svg>
+      </div>
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6 font-serif tracking-wide leading-relaxed">
+        一穗稻香藏黑土
+        <br>
+        一方皂体润温情
+      </h2>
+      <div class="w-24 h-1 bg-white/50 mx-auto rounded-full"></div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="py-12 bg-amber-950 text-amber-100">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center">
+        <div class="flex items-center justify-center gap-3 mb-4">
+          <svg class="w-8 h-8 text-amber-400" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C12 2 8 6 8 10C8 12 9 14 10 15L10 22H14L14 15C15 14 16 12 16 10C16 6 12 2 12 2Z" opacity="0.8"/>
+          </svg>
+          <span class="text-xl font-bold font-serif">关东稻香皂</span>
+        </div>
+        <p class="text-amber-300/70 text-sm mb-6">承关东农耕韵，凝稻香润日常</p>
+        <div class="flex justify-center gap-6 text-sm text-amber-400/60">
+          <span>地标溯源</span>
+          <span>·</span>
+          <span>匠心设计</span>
+          <span>·</span>
+          <span>天然成分</span>
+          <span>·</span>
+          <span>文化传承</span>
+        </div>
+        <div class="mt-8 pt-6 border-t border-amber-800/50 text-amber-500/50 text-xs">
+          关东稻香皂 · 农耕系文旅文创好物
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const logo = navbar.querySelector('a');
+    
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        navbar.classList.remove('bg-transparent', 'py-5');
+        navbar.classList.add('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+        navLinks.forEach(link => {
+          link.classList.remove('text-white/90', 'hover:bg-white/10');
+          link.classList.add('text-amber-700', 'hover:bg-amber-100');
+        });
+        logo.classList.remove('text-white');
+        logo.classList.add('text-amber-800');
+      } else {
+        navbar.classList.add('bg-transparent', 'py-5');
+        navbar.classList.remove('bg-white/95', 'backdrop-blur-md', 'shadow-lg', 'py-3');
+        navLinks.forEach(link => {
+          link.classList.add('text-white/90', 'hover:bg-white/10');
+          link.classList.remove('text-amber-700', 'hover:bg-amber-100');
+        });
+        logo.classList.add('text-white');
+        logo.classList.remove('text-amber-800');
+      }
+    });
+
+    // 移动端菜单
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuIcon = document.getElementById('menuIcon');
+    
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+      if (mobileMenu.classList.contains('active')) {
+        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      } else {
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      }
+    });
+
+    // 点击移动端菜单链接后关闭菜单
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+  </script>
+</body>
+</html>
